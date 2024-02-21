@@ -5,10 +5,14 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -32,11 +36,17 @@ public class BaseTest {
 		String browserName = prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
-			local.set(new ChromeDriver());
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			local.set(new ChromeDriver(chromeOptions));
 		}else if(browserName.equalsIgnoreCase("firefox")) {
-			local.set(new FirefoxDriver());
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
+			firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			local.set(new FirefoxDriver(firefoxOptions));
 		}else if(browserName.equalsIgnoreCase("edge")) {
-			local.set(new EdgeDriver());
+			EdgeOptions edgeOptions = new EdgeOptions();
+			edgeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			local.set(new EdgeDriver(edgeOptions));
 		}else {
 			local.set(new ChromeDriver());
 		}
