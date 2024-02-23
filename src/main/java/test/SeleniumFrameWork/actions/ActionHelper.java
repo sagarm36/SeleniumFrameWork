@@ -37,5 +37,6 @@ public class ActionHelper {
 	public void scrollToBottomOfPage() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+		
 	}
 }
