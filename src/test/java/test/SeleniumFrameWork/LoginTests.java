@@ -3,6 +3,7 @@ package test.SeleniumFrameWork;
 import org.testng.annotations.Test;
 
 import test.SeleniumFrameWork.base.BaseTest;
+import test.SeleniumFrameWork.retry.Retry;
 
 public class LoginTests extends BaseTest{
 	
@@ -10,6 +11,7 @@ public class LoginTests extends BaseTest{
 	public void clickOnLogin() {
 		loginPage.clickOnLoginIcon();
 		loginPage.enterLoginCredentials("sagar.muttappanvar@gmail.com", "Sagar");
+		//loginPage.clickOnPreviousNavigator();
 		loginPage.clickOnLoginButton();
 	}
 	
