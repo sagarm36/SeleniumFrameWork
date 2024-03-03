@@ -28,6 +28,9 @@ public class LoginPage extends ActionHelper{
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement loginButton;
 	
+	@FindBy(xpath = "//div[@class='swiper-button-prev']")
+	WebElement previousNavigator;
+	
 	public void clickOnLoginIcon() {
 		waitUntilElementVisible(loginIcon);
 		ActionHelper.click(loginIcon);
@@ -44,6 +47,9 @@ public class LoginPage extends ActionHelper{
 		ActionHelper.click(loginButton);
 	}
 	
+	public void clickOnPreviousNavigator() {
+		ActionHelper.click(previousNavigator);
+	}
 	
 
 }
